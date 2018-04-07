@@ -14,3 +14,16 @@ var animalSearched = "Dog";
 // JS method for replacing entire page with new HTML
 
 // JS method for getting API request
+
+var queryURL = "http://api.petfinder.com/pet.getRandom?key="+apiKey+"&output=full&format=json&animal=dog";
+$.ajax({
+    url: queryURL,
+    method: "GET"
+  })
+
+  
+    .then(function(response) {
+        console.log();
+   
+
+    });
