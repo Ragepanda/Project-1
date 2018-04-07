@@ -1,5 +1,6 @@
 // JS variables, such as "animalSearched", api-key, api-url;
 var apiKey = "49bd46fd5aab11a948d0cf49fdb22633";
+var animalSearched = "Dog";
 // Jquery on click event for submit button, should grab zip code box
 
 // Jquery event for clicking left arrow on the page 
