@@ -8,11 +8,22 @@
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="assets/javascript/app.js"></script>
+    <script="text/javascript"></script>
     <title>BonR</title>
 </head>
 <body>
     <p>Meet BonR, a.k.a. Tinder for Dogs! With BonR, you can pick and choose a dog to adopt, and set up puppy playdates! 
-       Swipe right if you like a dog, swipe left if you don't. 
-    </p>
+       Swipe right if you like a dog, swipe left if you don't.</p>
+    <p>Enter your zip code, and find a companion for your canine!</p>   
+    <div> <input id=zipCode placeholder="Zip Code" value=""></input>
+        <button id=enter>Enter</button>
+    </div>
+ <script>
+    $('#enter').on('click', function() {
+        var zipCode = $('#zipCode').val();
+        console.log(zipCode);
+    });
+</script>
+
 </body>
 </html>
