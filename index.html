@@ -1,29 +1,93 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="assets/javascript/app.js"></script>
-    <script="text/javascript"></script>
-    <title>BonR</title>
-</head>
-<body>
-    <p>Meet BonR, a.k.a. Tinder for Dogs! With BonR, you can pick and choose a dog to adopt, and set up puppy playdates! 
-       Swipe right if you like a dog, swipe left if you don't.</p>
-    <p>Enter your zip code, and find a companion for your canine!</p>   
-    <div> <input id=zipCode placeholder="Zip Code" value=""></input>
-        <button id=enter>Enter</button>
-    </div>
- <script>
-    $('#enter').on('click', function() {
-        var zipCode = $('#zipCode').val();
-        console.log(zipCode);
-    });
-</script>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- <link rel="stylesheet" type="text/css" href="assets/css/reset.css"> -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script="text/javascript"></script>
+
+        <title>BonR</title>
+</head>
+
+<body>
+    <header>
+        <img id="logo" src="assets/images/logo/logo.png" alt="logo" height="200px" width="200px" />
+    </header>
+    <div class="container text-center">
+        <div class="row text-center">
+            <p>Meet BonR, a.k.a. Tinder for Dogs! With BonR, you can pick and choose a dog to adopt, and set up puppy playdates!
+                Swipe right if you like a dog, swipe left if you don't.</p>
+        </div>
+    </div>
+
+    <form>
+        <div class="container text-center">
+            <div class="row justify-content-center">
+                <label>Seeking: </label>
+            </div>
+            <div class="form-row align-items-center" id="pick-animal">
+                <div class="col-lg-2 offset-lg-2" id="dog-box">
+                    <a>
+                        <img src="assets/images/dog.png">
+                    </a>
+                    <br>
+                    <label class="mr-lg-2 animal-text" for="inlineFormCustomSelect">Woof</label>
+                </div>
+                <div class="col-lg-2" id="cat-box">
+                    <a>
+                        <img src="assets/images/cat.png">
+                    </a>
+                    <br>
+                    <label class="mr-lg-2 animal-text" for="inlineFormCustomSelect">Meow</label>
+                </div>
+                <div class="col-lg-2" id="misc-box">
+                    <a>
+                        <img src="assets/images/miscellaneous.png">
+                    </a>
+                    <br>
+                    <label class="mr-lg-2 animal-text" for="inlineFormCustomSelect">Miscellaneous</label>
+                </div>
+            </div>
+            <div class="col-lg-4 offset-lg-4 justify-content-center">
+                <label for="validationCustom05">Location: </label>
+                <input id="zipcode" type="text" class="form-control" id="validationCustom05" placeholder="Zip" required>
+            </div>
+            <button class="btn btn-primary" id="submit" type="submit">Submit</button>
+        </div>
+    </form>
+
+    <script>
+        $('#submit').on('click', function () {
+            var zipCode = $('#zipCode').val();
+            console.log(zipCode);
+        });
+    </script>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <script src="assets/javascript/app.js"></script>
+
+    <div>Logo made with
+        <a href="https://
+        www.designevo.com/" title="Free Online Logo Maker">DesignEvo</a>
+    </div>
 </body>
+
 </html>
