@@ -4,21 +4,27 @@ var animalSearched = "Dog";
 var apiUrl = "";
 // Jquery on click event for submit button, should grab zip code box
 
+
   $('#enter').on('click', function() {
         var zipCode = $('#zipCode').val();
         console.log(zipCode); 
   })
-// Jquery event for clicking left arrow on the page 
-
-// Jquery event for clicking left arrow on the page
 
 // Jquery event for clicking left arrow on their keyboard
+$('').on('click', function(){
+
+})
 
 // Jquery event for right arrow on keyboard
-
+$('').on('click', function(){
+    
+})
 // Jquery event for clicking right arrow on the page
-
+$('').on('click', function(){
+    
+})
 // JS method for replacing entire page with new HTML
+
 
 // JS method for getting API request
 
