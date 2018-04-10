@@ -9,8 +9,6 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 
-    <!-- <link rel="stylesheet" type="text/css" href="assets/css/reset.css"> -->
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
 
@@ -26,13 +24,29 @@
     <title>BonR</title>
 </head>
 
-<body>
-<<<<<<< HEAD
+
+<body id="index-body">
     <div class="container-fluid">
         <div class="row">
-            <a href="index.html"/><img id="logo" class="bounceInRight" src="assets/images/logo-transparent.png" alt="logo" height="200px" width="200px"/></a>
+            <a href="index.html" />
+            <img id="logo" class="bounceInRight" src="assets/images/logo-transparent.png" alt="logo" height="200px" width="200px" />
+            </a>
+
+            <div id="mySidenav" class="sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <a href="#">Home</a>
+                <a href="#">About</a>
+                <a href="#">Messages</a>
+                <a href="#">Matches</a>
+            </div>
+
+            <div class=" col-12 justify-content-end d-flex">
+                <span style="font-size:30px;cursor:pointer" onclick="openNav()">
+                    <img id="setting-gear" src="assets/images/settings.svg" height="40px" width="40px">
+                </span>
+            </div>
         </div>
-=======
+
     <p>Meet BonR, a.k.a. Tinder for Dogs! With BonR, you can pick and choose a dog to adopt, and set up puppy playdates! 
        Swipe right if you like a dog, swipe left if you don't.</p>
     <p>Enter your name and zip code, and find a companion for your canine!</p>   
@@ -40,7 +54,7 @@
         <input id=name placeholder="Name" value=""></input>
         <input id=zipCode placeholder="Zip Code" value=""></input>
         <button id=enter>Enter</button>
->>>>>>> 6486e36cdf098f8816b795642c4649417813fb8d
+
     </div>
 
     <div class="container-fluid full-width-image">
@@ -82,6 +96,7 @@
                 <button class="btn btn-light" id="submit" type="submit">Submit</button>
             </div>
         </form>
+
  <script>
     $('#enter').on('click', function() {
         var name = $('#name').val();
@@ -91,10 +106,21 @@
         console.log(zipCode);    
     });
         var addClass = 'clicked-border';
+  
+        var addClass = 'highlight-border';
         var $cols = $('.highlight').click(function () {
-            $cols.removeClass(addClass);
-            $(this).addClass(addClass);
+            $(this).toggleClass(addClass);
         });
+
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+        };
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+        };
 
         $('#submit').on('click', function () {
             var zipCode = $('#zipCode').val();
