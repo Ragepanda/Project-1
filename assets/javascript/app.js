@@ -4,11 +4,14 @@ var animalSearched = "Dog";
 var apiUrl = "";
 // Jquery on click event for submit button, should grab zip code box
 <<<<<<< HEAD
+<<<<<<< HEAD
   $('#enter').on('click', function() {
         var zipCode = $('#zipCode').val();
         console.log(zipCode); 
 // Jquery event for clicking left arrow on the page 
 =======
+=======
+>>>>>>> 6486e36cdf098f8816b795642c4649417813fb8d
 $('#enter').on('click', function() {
     var zipCode = $('#zipCode').val();
     console.log(zipCode);    
@@ -16,7 +19,10 @@ $('#enter').on('click', function() {
 $('').on('click', function(){
 
 })
+<<<<<<< HEAD
 >>>>>>> nagaraj
+=======
+>>>>>>> 6486e36cdf098f8816b795642c4649417813fb8d
 
 // Jquery event for clicking left arrow on their keyboard
 
@@ -28,6 +34,7 @@ $('').on('click', function(){
 .innerHTML
 // JS method for getting API request
 var queryURL = "";
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 // JS method for getting API request
@@ -45,10 +52,17 @@ $.ajax({
 
     });
 =======
+=======
+
+>>>>>>> 6486e36cdf098f8816b795642c4649417813fb8d
 $.ajax({
     url: queryURL,
     method: "GET"
   }).then(function(response) {
     console.log(response);
+<<<<<<< HEAD
   });
 >>>>>>> nagaraj
+=======
+  });
+>>>>>>> 6486e36cdf098f8816b795642c4649417813fb8d
