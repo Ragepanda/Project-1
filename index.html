@@ -72,9 +72,14 @@
                 <button class="btn btn-light" id="submit" type="submit">Submit</button>
             </div>
         </form>
-    </div>
-
-    <script>
+ <script>
+    $('#enter').on('click', function() {
+        var name = $('#name').val();
+        console.log(name);
+    $('#enter').on('click', function() {
+        var zipCode = $('#zipCode').val();
+        console.log(zipCode);    
+    });
         var addClass = 'clicked-border';
         var $cols = $('.highlight').click(function () {
             $cols.removeClass(addClass);
