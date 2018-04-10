@@ -14,14 +14,19 @@
 <body>
     <p>Meet BonR, a.k.a. Tinder for Dogs! With BonR, you can pick and choose a dog to adopt, and set up puppy playdates! 
        Swipe right if you like a dog, swipe left if you don't.</p>
-    <p>Enter your zip code, and find a companion for your canine!</p>   
-    <div> <input id=zipCode placeholder="Zip Code" value=""></input>
+    <p>Enter your name and zip code, and find a companion for your canine!</p>   
+    <div> 
+        <input id=name placeholder="Name" value=""></input>
+        <input id=zipCode placeholder="Zip Code" value=""></input>
         <button id=enter>Enter</button>
     </div>
  <script>
     $('#enter').on('click', function() {
-        var zipCode = $('#zipCode').val();
-        console.log(zipCode);
+        var name = $('#name').val();
+        console.log(name);
+    $('#enter').on('click', function() {
+        var zipCode = $('#name').val();
+        console.log(zipCode);    
     });
 </script>
 
