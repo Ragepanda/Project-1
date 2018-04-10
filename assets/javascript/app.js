@@ -3,66 +3,35 @@ var apiKey = "49bd46fd5aab11a948d0cf49fdb22633";
 var animalSearched = "Dog";
 var apiUrl = "";
 // Jquery on click event for submit button, should grab zip code box
-<<<<<<< HEAD
-<<<<<<< HEAD
-  $('#enter').on('click', function() {
-        var zipCode = $('#zipCode').val();
-        console.log(zipCode); 
-// Jquery event for clicking left arrow on the page 
-=======
-=======
->>>>>>> 6486e36cdf098f8816b795642c4649417813fb8d
-$('#enter').on('click', function() {
+$('#submit').on('click', function() {
     var zipCode = $('#zipCode').val();
     console.log(zipCode);    
 // Jquery event for clicking left arrow on the page
 $('').on('click', function(){
 
 })
-<<<<<<< HEAD
->>>>>>> nagaraj
-=======
->>>>>>> 6486e36cdf098f8816b795642c4649417813fb8d
 
 // Jquery event for clicking left arrow on their keyboard
+$('').on('click', function(){
+
+})
 
 // Jquery event for right arrow on keyboard
-
+$('').on('click', function(){
+    
+})
 // Jquery event for clicking right arrow on the page
-
+$('').on('click', function(){
+    
+})
 // JS method for replacing entire page with new HTML
 .innerHTML
 // JS method for getting API request
 var queryURL = "";
-<<<<<<< HEAD
 
-<<<<<<< HEAD
-// JS method for getting API request
-
-var queryURL = "http://api.petfinder.com/pet.getRandom?key="+apiKey+"&output=full&format=json&animal=dog";
-$.ajax({
-    url: queryURL,
-    method: "GET"
-  })
-
-  
-    .then(function(response) {
-        console.log();
-   
-
-    });
-=======
-=======
-
->>>>>>> 6486e36cdf098f8816b795642c4649417813fb8d
 $.ajax({
     url: queryURL,
     method: "GET"
   }).then(function(response) {
     console.log(response);
-<<<<<<< HEAD
   });
->>>>>>> nagaraj
-=======
-  });
->>>>>>> 6486e36cdf098f8816b795642c4649417813fb8d
