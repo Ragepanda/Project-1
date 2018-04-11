@@ -162,6 +162,15 @@ input[type=text]:focus {
 
 .dislike-info-like {
     margin-top: 10px;
+    align-content: center;
+}
+
+.buttons {
+    margin-right: 45px;
+}
+
+.buttons:hover {
+    cursor: pointer;
 }
 
 /* //////////// */
