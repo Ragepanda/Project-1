@@ -4,12 +4,29 @@ var animalSearched = "Dog";
 var apiUrl = "";
 // Jquery on click event for submit button, should grab zip code box
 
+$('#submit').on('click', function() {
+  var name = $('#name').val();
+  console.log(name);
 
-  $('#enter').on('click', function() {
-        var zipCode = $('#zipCode').val();
-        console.log(zipCode); 
-  })
+  var zipCode = $('#zipCode').val();
+  console.log(zipCode);  
+  console.log(getDawgs());  
+});
+  var addClass = 'highlight-border';
+  var cols = $('.highlight').click(function () {
+      $(this).toggleClass(addClass);
+  });
 
+  function openNav() {
+      document.getElementById("mySidenav").style.width = "250px";
+      document.getElementById("main").style.marginLeft = "250px";
+  };
+
+  function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+      document.getElementById("main").style.marginLeft = "0";
+  };
+ 
 // Jquery event for clicking left arrow on their keyboard
 $('').on('click', function(){
 
@@ -28,14 +45,23 @@ $('').on('click', function(){
 
 // JS method for getting API request
 
-
-var queryURL = "http://api.petfinder.com/pet.getRandom?key="+apiKey+"&output=full&format=json&animal=dog";
-
-
-$.ajax({
+function getDawgs(){
+var queryURL = "https://api.petfinder.com/pet.getRandom?key="+apiKey+"&output=full&format=json&animal=dog";
+var returnValue;
+  
+  jQuery.ajax({
+    type: 'GET',
     url: queryURL,
-    method: "GET"
-  }).then(function(response) {
+    dataType: 'jsonp'
+  }).then((response)=> {
     console.log(response);
-  })
+    returnValue = response;
+  }).catch((error)=>{
+    console.log(error);
+  });
 
+return returnValue;
+ // console.log("end of getDawgs method");
+}
+
+//getDawgs();
