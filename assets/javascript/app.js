@@ -27,17 +27,17 @@ $('#submit').on('click', function() {
       document.getElementById("main").style.marginLeft = "0";
   };
  
-// Jquery event for clicking left arrow on their keyboard
+// Jquery event for clicking left button on their keyboard
 $('').on('click', function(){
 
 })
 
-// Jquery event for right arrow on keyboard
+// Jquery event for middle button on keyboard
 $('').on('click', function(){
     
 })
-// Jquery event for clicking right arrow on the page
-$('').on('click', function(){
+// Jquery event for clicking right button on the page
+$('.pull-right location').on('click', function(){
     
 })
 // JS method for replacing entire page with new HTML
