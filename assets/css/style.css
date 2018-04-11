@@ -160,6 +160,9 @@ input[type=text]:focus {
     padding: 10px;
 }
 
+.dislike-info-like {
+    margin-top: 10px;
+}
 
 /* //////////// */
 
