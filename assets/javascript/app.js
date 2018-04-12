@@ -69,4 +69,4 @@ return returnValue;
 
 function flip() {
   $('.card').toggleClass('flipped');
-}
+};
