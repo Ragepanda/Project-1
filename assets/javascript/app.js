@@ -65,3 +65,8 @@ return returnValue;
 }
 
 //getDawgs();
+
+
+function flip() {
+  $('.card').toggleClass('flipped');
+}

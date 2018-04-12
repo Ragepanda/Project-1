@@ -46,57 +46,70 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid text-center" id="pet-image">
-        <div class="row">
-            <div class="col-lg-4 offset-md-4 justify-content-center profile-box">
-                <div class="card" style="width: 400px;">
+    <div class="container-fluid text-center pet-image">
+        <!-- <section class="flipcontainer">
+            <div class="card" onclick="flip()">
+                <div class="front">
                     <img class="card-img-top" src="http://via.placeholder.com/550x550" alt="Card image cap">
                     <div class="card-body pull-left">
-                        <h5 class="pet-name">Name</h5>
+                        <div class="card-body pull-left">
+                            <h5 class="pet-name">Name</h5>
+                        </div>
+                        <div class="pull-right location">
+                            <img src="assets/images/map-marker.svg" height="30px" width="30px">5 miles
+                        </div>
                     </div>
-                    <div class="pull-right location">
-                        <img src="assets/images/map-marker.svg" height="30px" width="30px">5 miles
+                    <div class="back">
+                        <p>Description goes here:</p>
                     </div>
                 </div>
+        </section> -->
+        <!-- <div class="container-fluid text-center dislike-info-like" style="width: 350px;"> -->
+        <div class="row align-items-center">
+            <div class="col-4 offset-5">
+                <section class="flipcontainer">
+                    <div class="card" onclick="flip()">
+                        <div class="front">
+                            <img class="card-img-top" src="http://via.placeholder.com/550x550" alt="Card image cap">
+                            <div class="card-body pull-left">
+                                <div class="card-body pull-left">
+                                    <h5 class="pet-name">Name</h5>
+                                </div>
+                                <div class="pull-right location">
+                                    <img src="assets/images/map-marker.svg" height="30px" width="30px">5 miles
+                                </div>
+                            </div>
+                            <div class="back">
+                                <p>Description goes here:</p>
+                            </div>
+                        </div>
+                </section>
+                </div>
             </div>
-        </div>
-        <div class="container-fluid text-center dislike-info-like" style="width: 450px;">
             <div class="form-row align-items-center justify-content-center">
-                <div class="col-lg-2 offset-lg-2 buttons">
+
+                <div class="col-1 offset-2 buttons">
                     <a>
-                        <img id="dislike-image" src="assets/images/cancel.svg" height="60px" width="60px">
+                        <img id="swipe_dislike" class="rate" src="assets/images/cancel.svg" height="60px" width="60px">
                     </a>
                     <br>
                 </div>
-                <div class="col-lg-2 buttons">
+                <div class="col-1 buttons flip" id="flip">
                     <a>
-                        <img id="info-image" src="assets/images/information.svg" height="60px" width="60px">
+                        <img class="info" src="assets/images/information.svg" height="60px" width="60px">
                     </a>
                     <br>
                 </div>
-                <div class="col-lg-2 buttons">
+                <div class="col-1 buttons">
                     <a>
-                        <img id="like-image" src="assets/images/heart.svg" height="60px" width="60px">
+                        <img id="swipe_like" class="rate" src="assets/images/heart.svg" height="60px" width="60px">
                     </a>
                     <br>
                 </div>
             </div>
+
         </div>
     </div>
-
-    <script>
-
-        function openNav() {
-            document.getElementById("mySidenav").style.width = "250px";
-            document.getElementById("main").style.marginLeft = "250px";
-        };
-
-        function closeNav() {
-            document.getElementById("mySidenav").style.width = "0";
-            document.getElementById("main").style.marginLeft = "0";
-        };
-    </script>
-
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
