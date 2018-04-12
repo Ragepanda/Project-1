@@ -5,9 +5,6 @@ var apiUrl = "";
 // Jquery on click event for submit button, should grab zip code box
 
 $('#submit').on('click', function() {
-  var name = $('#name').val();
-  console.log(name);
-
   var zipCode = $('#zipCode').val();
   console.log(zipCode);  
   console.log(getDawgs());  
