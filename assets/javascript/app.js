@@ -66,7 +66,8 @@ $(document).ready(function() {
   //getDawgs();
 
 
-  function flip() {
-    $('.card').toggleClass('flipped');
-  }
+
+function flip() {
+  $('.card').toggleClass('flipped');
 });
+
