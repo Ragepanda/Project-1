@@ -33,16 +33,53 @@
 
             <div id="mySidenav" class="sidenav">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                <a href="#">Home</a>
+                <a href="index.html">Home</a>
                 <a href="#">About</a>
                 <a href="#">Messages</a>
-                <a href="#">Matches</a>
+                <a href="main.html">Matches</a>
             </div>
 
             <div class=" col-12 justify-content-end d-flex">
                 <span style="font-size:30px;cursor:pointer" onclick="openNav()">
                     <img id="setting-gear" src="assets/images/settings.svg" height="40px" width="40px">
                 </span>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid text-center" id="pet-image">
+        <div class="row">
+            <div class="col-lg-4 offset-md-4 justify-content-center profile-box">
+                <div class="card" style="width: 400px;">
+                    <img class="card-img-top" src="http://via.placeholder.com/550x550" alt="Card image cap">
+                    <div class="card-body pull-left">
+                        <h5 class="pet-name">Name</h5>
+                    </div>
+                    <div class="pull-right location">
+                        <img src="assets/images/map-marker.svg" height="30px" width="30px">5 miles
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid text-center dislike-info-like" style="width: 450px;">
+            <div class="form-row align-items-center justify-content-center">
+                <div class="col-lg-2 offset-lg-2 buttons">
+                    <a>
+                        <img id="dislike-image" src="assets/images/cancel.svg" height="60px" width="60px">
+                    </a>
+                    <br>
+                </div>
+                <div class="col-lg-2 buttons">
+                    <a>
+                        <img id="info-image" src="assets/images/information.svg" height="60px" width="60px">
+                    </a>
+                    <br>
+                </div>
+                <div class="col-lg-2 buttons">
+                    <a>
+                        <img id="like-image" src="assets/images/heart.svg" height="60px" width="60px">
+                    </a>
+                    <br>
+                </div>
             </div>
         </div>
     </div>

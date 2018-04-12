@@ -31,18 +31,23 @@ function closeNav() {
   document.getElementById("main").style.marginLeft = "0";
 };
 
-// Jquery event for clicking left arrow on their keyboard
-$('').on('click', function () {
+  function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+      document.getElementById("main").style.marginLeft = "0";
+  };
+ 
+// Jquery event for clicking left button on their keyboard ("dislike/swipe left on a dog")
+$('#dislike-image').on('click', function(){
 
 })
 
-// Jquery event for right arrow on keyboard
-$('').on('click', function () {
-
+// Jquery event for middle button on keyboard ("get a dog's info")
+$('#info-image').on('click', function(){
+    
 })
-// Jquery event for clicking right arrow on the page
-$('').on('click', function () {
-
+// Jquery event for clicking right button on the page ("like/swipe right on a dog")
+$('#like-image').on('click', function(){
+    
 })
 // JS method for replacing entire page with new HTML
 
