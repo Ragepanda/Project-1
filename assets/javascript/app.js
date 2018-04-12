@@ -27,20 +27,20 @@ $('#submit').on('click', function() {
       document.getElementById("main").style.marginLeft = "0";
   };
  
-// Jquery event for clicking left button on their keyboard ("dislike/swipe left on a dog")
-$('#dislike-image').on('click', function(){
+// Jquery event for clicking left button on their keyboard ("dislike/swipe left on a pet")
+$('#swipe_dislike').on('click', function(){
 
 })
 
-// Jquery event for middle button on keyboard ("get a dog's info")
-$('#info-image').on('click', function(){
+// Jquery event for middle button on keyboard ("get a pet's info")
+$('#info').on('click', function(){
     
 })
-// Jquery event for clicking right button on the page ("like/swipe right on a dog")
-$('#like-image').on('click', function(){
+// Jquery event for clicking right button on the page ("like/swipe right on a pet")
+$('#swipe_like').on('click', function(){
     
 })
-// JS method for replacing entire page with new HTML
+// Jquery method for changing pet's pic after clicking 'info' button
 
 
 // JS method for getting API request
