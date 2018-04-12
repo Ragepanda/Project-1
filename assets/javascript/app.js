@@ -77,3 +77,8 @@ function getDawgs() {
 }
 
 //getDawgs();
+
+
+function flip() {
+  $('.card').toggleClass('flipped');
+}
