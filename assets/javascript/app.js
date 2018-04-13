@@ -12,32 +12,38 @@ $(document).ready(function () {
   var catSelected = sessionStorage.getItem("catSelected");
   var miscSelected = sessionStorage.getItem("miscSelected");
   console.log(zipcode);
-  console.log("dogSelected: "+dogSelected);
-  console.log("catSelected: "+catSelected);
-  console.log("miscSelected"+miscSelected);
-  
+  console.log("dogSelected: " + dogSelected);
+  console.log("catSelected: " + catSelected);
+  console.log("miscSelected" + miscSelected);
 
-  if(dogSelected === "true"){
+  $('.animal-box').on('click', function () {
+    console.log("poop");
+    if ($(this).attr("chosen") === "true") {
+      $(this).attr("chosen", "false");
+      $(this).removeClass('highlight-border')
+    } else {
+      $('.animal-box').attr("chosen", "false");
+      $(this).attr("chosen", "true");
+      $('.animal-box').removeClass('highlight-border');
+      $(this).addClass('highlight-border');
+    }
+  });
+
+  if (dogSelected === "true") {
     console.log("got dogs");
     getDawgs();
   }
-    
-  if(catSelected === "true") {
+
+  if (catSelected === "true") {
     console.log("got cats");
     getKitties();
   }
 
-  if(miscSelected === "true") {
+  if (miscSelected === "true") {
     console.log("got misc");
     getMisc();
   }
 
-    
-  var addClass= "highlight-border";
-  $("body").on("click",".highlight", function () {
-    var addClass = 'highlight-border';
-    $(this).toggleClass(addClass);
-  });
 
   // Jquery on click event for submit button, should grab zip code box
   $('#submit').on('click', function () {
@@ -111,7 +117,7 @@ $(document).ready(function () {
       console.log(response);
       console.log("dogObjects Array:");
       console.log(dogObjects);
-     //$(".card-img-top").attr("src", dogObjects[0].picture);
+      //$(".card-img-top").attr("src", dogObjects[0].picture);
       $(".pet-name").text(dogObjects[0].name);
       $("#description").text(dogObjects[0].description);
     }).catch((error) => {
@@ -185,7 +191,7 @@ $(document).ready(function () {
       console.log(response);
       console.log("miscObjects array:")
       console.log(miscObjects);
-     //$(".card-img-top").attr("src", miscObjects[0].picture);
+      //$(".card-img-top").attr("src", miscObjects[0].picture);
       $(".pet-name").text(miscObjects[0].name);
       $("#description").text(miscObjects[0].description);
     }).catch((error) => {
