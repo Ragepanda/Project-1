@@ -18,7 +18,7 @@
 
     <link rel="paw print icon" href="assets/images/paw-favicon.png" type="image/x-icon">
 
-   
+
 
     <title>BonR</title>
 </head>
@@ -27,8 +27,8 @@
 <body id="index-body">
     <div class="container-fluid">
         <div class="row">
-            <a href="index.html" />
-            <img id="logo" class="bounceInRight" src="assets/images/logo-transparent.png" alt="logo" height="200px" width="200px" />
+            <a href="index.html">
+                <img id="logo" class="bounceInRight" src="assets/images/logo-transparent.png" alt="logo" height="200px" width="200px">
             </a>
 
             <div id="mySidenav" class="sidenav">
@@ -45,6 +45,7 @@
                 </span>
             </div>
         </div>
+    </div>
     <div class="container-fluid full-width-image">
         <div class="container text-center">
             <div class="row justify-content-center">
@@ -54,21 +55,21 @@
         <form>
             <div class="container-fluid text-center" id="main-text-box">
                 <div class="form-row align-items-center justify-content-center" id="pick-animal">
-                    <div class="col-lg-2 offset-lg-2 highlight animal-box" id="dog-box">
+                    <div class="col-lg-2 offset-lg-2 animal-box" id="dog-box" animal="dog" chosen="false">
                         <a>
                             <img id="dog-image" src="assets/images/dog.svg" height="100px" width="100px">
                         </a>
                         <br>
                         <label class="mr-lg-2 animal-text" for="inlineFormCustomSelect">Woof</label>
                     </div>
-                    <div class="col-lg-2 highlight animal-box" id="cat-box">
+                    <div class="col-lg-2 animal-box" id="cat-box" animal="cat" chosen="false">
                         <a>
                             <img src="assets/images/cat.svg" height="100px" width="100px">
                         </a>
                         <br>
                         <label class="mr-lg-2 animal-text" for="inlineFormCustomSelect">Meow</label>
                     </div>
-                    <div class="col-lg-2 highlight animal-box" id="misc-box">
+                    <div class="col-lg-2 animal-box" id="misc-box" animal="other" chosen="false">
                         <a>
                             <img src="assets/images/parrot.svg" height="100px" width="100px">
                         </a>
@@ -81,13 +82,13 @@
                 <div class="col-lg-4 offset-lg-4 justify-content-center">
                     <input id="zipcode" type="text" class="form-control zip text-center" placeholder="Zip Code" required>
                 </div>
-                <button class="btn btn-light" id="submit" type="submit"><a href="main.html" style="text-decoration:none; color: white">Submit</a></button>
+                <button class="btn btn-light" id="submit" type="button">Submit</button>
             </div>
         </form>
-    </body>
+</body>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-    <script src="assets/javascript/app.js"></script>
+<script src="assets/javascript/app.js"></script>
 
 </html>
