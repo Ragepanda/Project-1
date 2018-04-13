@@ -10,7 +10,6 @@ $(document).ready(function () {
   $('#submit').on('click', function () {
     var zipCode = $('#zipCode').val();
     console.log(zipCode);
-    console.log(getDawgs());
   });
   var addClass = 'highlight-border';
   var cols = $('.highlight').click(function () {
@@ -68,13 +67,11 @@ $(document).ready(function () {
       }
       console.log(response);
       console.log(dogObjects);
-
-
     }).catch((error) => {
       console.log(error);
     });
-  };
-});
+  }
+
 function flip() {
   $('.card').toggleClass('flipped');
 };
@@ -90,4 +87,4 @@ function closeNav() {
   document.getElementById("main").style.marginLeft = "0";
 };
 
-
+});
