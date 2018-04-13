@@ -8,7 +8,7 @@ $(document).ready(function () {
 
   // Jquery on click event for submit button, should grab zip code box
   $('#submit').on('click', function () {
-    var zipCode = $('#zipCode').val();
+    var zipCode = $('#zipcode').val();
     console.log(zipCode);
   });
   var addClass = 'highlight-border';
