@@ -12,19 +12,24 @@ $(document).ready(function () {
   var catSelected = sessionStorage.getItem("catSelected");
   var miscSelected = sessionStorage.getItem("miscSelected");
   console.log(zipcode);
-  console.log(dogSelected);
-  console.log(catSelected);
-  console.log(miscSelected);
+  console.log("dogSelected: "+dogSelected);
+  console.log("catSelected: "+catSelected);
+  
 
-  if(dogSelected)
+  if(dogSelected === "true"){
+    console.log("got dogs");
     getDawgs();
-  if(catSelected) 
+  }
+    
+  if(catSelected === "true") {
+    console.log("got cats");
     getKitties();
-  if(miscSelected)
-    getEveryone();
+  }
 
-  var addClass = 'highlight-border';
-  $('.highlight').on("click", function () {
+    
+  var addClass= "highlight-border";
+  $("body").on("click",".highlight", function () {
+    var addClass = 'highlight-border';
     $(this).toggleClass(addClass);
   });
 
@@ -99,6 +104,45 @@ $(document).ready(function () {
       }
       console.log(response);
       console.log(dogObjects);
+     //$(".card-img-top").attr("src", dogObjects[0].picture);
+      $(".pet-name").text(dogObjects[0].name);
+      $("#description").text(dogObjects[0].description);
+    }).catch((error) => {
+      console.log(error);
+    });
+  }
+
+  function getKitties() {
+    var queryURL = "https://api.petfinder.com/pet.find?key=" + apiKey + "&output=full&format=json&animal=cat&location=27560";
+
+    jQuery.ajax({
+      type: 'GET',
+      url: queryURL,
+      dataType: 'jsonp'
+    }).then((response) => {
+
+      for (var i = 0; i < 25; i++) {
+        var pictureURL;
+        if (!("photos" in response.petfinder.pets.pet[i].media))
+          pictureURL = "https://i.pinimg.com/originals/4a/e1/35/4ae1350602b3a7ea14b6fabe962aa15f.jpg";
+
+        else
+          pictureURL = response.petfinder.pets.pet[i].media.photos.photo[3].$t;
+
+        var newCat = {
+          name: response.petfinder.pets.pet[i].name.$t,
+          picture: pictureURL,
+          description: response.petfinder.pets.pet[i].description.$t,
+          zip: response.petfinder.pets.pet[i].contact.zip.$t
+        }
+        catObjects.push(newCat);
+      }
+      console.log(response);
+      console.log(catObjects);
+
+      //$(".card-img-top").attr("src", catObjects[0].picture);
+      $(".pet-name").text(catObjects[0].name);
+      $("#description").text(catObjects[0].description);
     }).catch((error) => {
       console.log(error);
     });
