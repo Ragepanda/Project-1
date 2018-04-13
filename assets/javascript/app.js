@@ -123,7 +123,7 @@ $(document).ready(function () {
       console.log(response);
       console.log("dogObjects Array:");
       console.log(dogObjects);
-      //$(".card-img-top").attr("src", dogObjects[0].picture);
+      $(".img-card").attr("src", dogObjects[0].picture);
       $(".pet-name").text(dogObjects[0].name);
       $("#description").text(dogObjects[0].description);
     }).catch((error) => {
@@ -197,7 +197,7 @@ $(document).ready(function () {
       console.log(response);
       console.log("miscObjects array:")
       console.log(miscObjects);
-      //$(".card-img-top").attr("src", miscObjects[0].picture);
+      $(".img-card").attr("src", miscObjects[0].picture);
       $(".pet-name").text(miscObjects[0].name);
       $("#description").text(miscObjects[0].description);
     }).catch((error) => {
@@ -207,7 +207,7 @@ $(document).ready(function () {
 });
 
 function flip() {
-  $('.card').toggleClass('flipped');
+  $('.card').toggleClass('flipped hidden');
 };
 
 
@@ -218,5 +218,6 @@ function openNav() {
 function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
 };
+
 
 
