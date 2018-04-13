@@ -40,10 +40,8 @@ $(document).ready(function() {
       
   })
   // Jquery method for pet's pic to change after clicking 'info' button
+  $('').on('click', function(){
 
-  // Jquery event for clicking right button on the page ("like/swipe right on a pet")
-  $('#swipe_like').on('click', function(){
-      
   })
 
   // JS method for getting API request
@@ -69,11 +67,12 @@ $(document).ready(function() {
 
   //getDawgs();
 
-});
+
 
 function flip() {
   $('.card').toggleClass('flipped');
 };
+});
 
 
 
