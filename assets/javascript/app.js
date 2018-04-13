@@ -4,6 +4,7 @@ $(document).ready(function () {
   // JS variables, such as "animalSearched", api-key:
   var apiKey = "49bd46fd5aab11a948d0cf49fdb22633";
   var animalSearched = "Dog";
+  var dogObjects = [];
 
   // Jquery on click event for submit button, should grab zip code box
   $('#submit').on('click', function () {
@@ -38,27 +39,40 @@ $(document).ready(function () {
 
   // JS method for getting API request
 
-  function getDawgs() {
-    var queryURL = "https://api.petfinder.com/pet.getRandom?key=" + apiKey + "&output=full&format=json&animal=dog";
-    var returnValue;
+ // JS method for getting API request
 
-    jQuery.ajax({
-      type: 'GET',
-      url: queryURL,
-      dataType: 'jsonp'
-    }).then((response) => {
-      console.log(response);
-      returnValue = response;
-    }).catch((error) => {
-      console.log(error);
-    });
+function getDawgs() {
+  var queryURL = "https://api.petfinder.com/pet.find?key=" + apiKey + "&output=full&format=json&animal=dog&location=27560";
 
-    return returnValue;
-    // console.log("end of getDawgs method");
-  }
+  jQuery.ajax({
+    type: 'GET',
+    url: queryURL,
+    dataType: 'jsonp'
+  }).then((response) => {
 
-  //getDawgs();
+    for (var i = 0; i < 25; i++) {
+      var pictureURL;
+      if (!("photos" in response.petfinder.pets.pet[i].media))
+        pictureURL = "https://i.pinimg.com/originals/4a/e1/35/4ae1350602b3a7ea14b6fabe962aa15f.jpg";
 
+      else
+        pictureURL = response.petfinder.pets.pet[i].media.photos.photo[3].$t;
+
+      var newDog = {
+        name: response.petfinder.pets.pet[i].name.$t,
+        picture: pictureURL,
+        description: response.petfinder.pets.pet[i].description.$t,
+        zip: response.petfinder.pets.pet[i].contact.zip.$t
+      }
+      dogObjects.push(newDog);
+    }
+    console.log(response);
+    console.log(dogObjects);
+
+
+  }).catch((error) => {
+    console.log(error);
+  });
 
 
 function flip() {
@@ -75,4 +89,5 @@ function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
   document.getElementById("main").style.marginLeft = "0";
 };
+
 
