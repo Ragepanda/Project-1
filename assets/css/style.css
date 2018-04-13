@@ -145,27 +145,30 @@ input[type=text]:focus {
     margin-left: 50px;
 }
 
-.pet-card {
-    align-content: center;
-    position: relative;
-    padding-right: 500px;
-    
-}
-
-.flipcontainer {
-    width: 400px;
-    height: 480px;
-    position: relative;
-    border: 1px solid #ccc;
-    -webkit-perspective: 800px;
-    -moz-perspective: 800px;
-    -o-perspective: 800px;
-    perspective: 800px;
-}
-.card {
-    width: 100%;
+.wrapper {
+    display: table;
     height: 100%;
-    position: absolute;
+    width: 100%;
+}
+  
+.container-fostrap {
+    display: table-cell;
+    padding: 1em;
+    text-align: center;
+    vertical-align: middle;
+}
+  
+.card-front {
+    display: block; 
+    margin-top: -300px;
+    margin-bottom: 20px;
+    line-height: 1.42857143;
+    background-color: white;
+    color: #666666;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    backface-visibility: hidden;
     -webkit-transition: -webkit-transform 1s;
     -moz-transition: -moz-transform 1s;
     -o-transition: -o-transform 1s;
@@ -176,30 +179,84 @@ input[type=text]:focus {
     transform-style: preserve-3d;
     -webkit-transform-origin: 50% 50%;
 }
-.card div {
+
+.card-back {
     display: block;
-    height: 100%;
-    width: 100%;
-    color: #666666;
-    text-align: center;
-    font-weight: bold;
-    font-size: 20px;
-    position: absolute;
+    margin-top: -380px;
+    background-color: none;
     -webkit-backface-visibility: hidden;
     -moz-backface-visibility: hidden;
     -o-backface-visibility: hidden;
     backface-visibility: hidden;
+    -webkit-transition: -webkit-transform 1s;
+    -moz-transition: -moz-transform 1s;
+    -o-transition: -o-transform 1s;
+    transition: transform 1s;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform-origin: 50% 50%;
 }
+  
+.img-card {
+    width: 100%;
+    height:300px;
+    border-top-left-radius:2px;
+    border-top-right-radius:2px;
+    display:block;
+    overflow: hidden;
+}
+
+.img-card img{
+    width: 100%;
+    height: 200px;
+    object-fit:cover; 
+    transition: all .25s ease;
+} 
+
+.card-content {
+    padding:15px;
+    text-align:left;
+}
+
+.card-title {
+    margin-top: -30px;
+    margin-bottom: 35px;
+    font-weight: 700;
+    font-size: 1.65em;
+    text-align: left;
+}
+
+.location {
+    text-align: right;
+    margin-top: -60px;
+}
+
+#pet-description {
+    padding-top: -300px;
+}
+
+.flipcontainer {
+    border: 1px solid #ccc;
+    -webkit-perspective: 800px;
+    -moz-perspective: 800px;
+    -o-perspective: 800px;
+    perspective: 800px;
+}
+
 .card .front {
-  background: white;
+  background-color: white;
 }
-.card .back {
-    margin-top: -300px;
+
+.back {
+    color: white;
     -webkit-transform: rotateY( 180deg );
     -moz-transform: rotateY( 180deg );
     -o-transform: rotateY( 180deg );
     transform: rotateY( 180deg );
 }
+
 .card.flipped {
     -webkit-transform: rotateY( 180deg );
     -moz-transform: rotateY( 180deg );
@@ -207,31 +264,16 @@ input[type=text]:focus {
     transform: rotateY( 180deg );
 }
 
-.pet-name {
-    text-align: left;
-    margin: -10px;
+#outer {
+    width: 100%;
+    text-align: center;
 }
 
-.location {
-    text-align: right;
-    margin-left: 120px;
-    margin-top: 8px;
+.inner {
+    display: inline-block;
 }
 
-.dislike-info-like {
-    align-content: center;
-    position: absolute;
-    padding-left: 30px;
-}
-
-.buttons {
-    align-content: center;
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-top: 10px;
-}
-
-.buttons:hover {
+.inner:hover {
     cursor: pointer;
 }
 
@@ -240,26 +282,10 @@ input[type=text]:focus {
 	height:70px;
 	border-radius: 70px;
 	border: 5px solid #f0f0f0;
-	float: left;
 	box-shadow: 1px 1px 1px 0px #e9e9e9;
 }
 
-.rate:nth-child(1) {
-    margin-left: -40px;
-	background-size: 25px;
-	background-position: center;
-	background-repeat: no-repeat;
-}
-
-.rate:nth-child(3) {
-	background-size: 25px;
-	background-position: center;
-	background-repeat: no-repeat;
-}
-
 .info {
-    margin-left: -40px;
-    float: left;
     height: 40px;
     width: 70px;
 }
