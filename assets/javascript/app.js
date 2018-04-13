@@ -140,7 +140,7 @@ $(document).ready(function () {
       console.log(response);
       console.log(catObjects);
 
-      //$(".card-img-top").attr("src", catObjects[0].picture);
+      $(".img-card").attr("src", catObjects[0].picture);
       $(".pet-name").text(catObjects[0].name);
       $("#description").text(catObjects[0].description);
     }).catch((error) => {
