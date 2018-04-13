@@ -5,17 +5,49 @@ $(document).ready(function () {
   var apiKey = "49bd46fd5aab11a948d0cf49fdb22633";
   var animalSearched = "Dog";
   var dogObjects = [];
+  var catObjects = [];
+  var miscObjects = [];
+  var zipcode = sessionStorage.getItem("zipcode");
+  var dogSelected = sessionStorage.getItem("dogSelected");
+  var catSelected = sessionStorage.getItem("catSelected");
+  var miscSelected = sessionStorage.getItem("miscSelected");
+  console.log(zipcode);
+  console.log(dogSelected);
+  console.log(catSelected);
+  console.log(miscSelected);
 
-  // Jquery on click event for submit button, should grab zip code box
-  $('#submit').on('click', function () {
-    var zipCode = $('#zipcode').val();
-    console.log(zipCode);
-  });
+  if(dogSelected)
+    getDawgs();
+  if(catSelected) 
+    getKitties();
+  if(miscSelected)
+    getEveryone();
+
   var addClass = 'highlight-border';
-  var cols = $('.highlight').click(function () {
+  $('.highlight').on("click", function () {
     $(this).toggleClass(addClass);
   });
 
+  // Jquery on click event for submit button, should grab zip code box
+  $('#submit').on('click', function () {
+    zipcode = $('#zipcode').val();
+    sessionStorage.setItem("zipcode", zipcode);
+
+    if ($("#dog-box").attr("class").includes("highlight-border"))
+      sessionStorage.setItem("dogSelected", true);
+    else
+      sessionStorage.setItem("dogSelected", false);
+
+    if ($("#cat-box").attr("class").includes("highlight-border"))
+      sessionStorage.setItem("catSelected", true);
+    else
+      sessionStorage.setItem("catSelected", false);
+
+    if ($("#misc-box").attr("class").includes("highlight-border"))
+      sessionStorage.setItem("miscSelected", true);
+    else
+      sessionStorage.setItem("miscSelected", false);
+  });
 
 
   // Jquery on click event for clicking left button on their keyboard ("dislike/swipe left on a pet")
