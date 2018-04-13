@@ -10,7 +10,6 @@ $(document).ready(function () {
   $('#submit').on('click', function () {
     var zipCode = $('#zipCode').val();
     console.log(zipCode);
-    console.log(getDawgs());
   });
   var addClass = 'highlight-border';
   var cols = $('.highlight').click(function () {
@@ -74,11 +73,11 @@ function getDawgs() {
     console.log(error);
   });
 
-
+}
 function flip() {
   $('.card').toggleClass('flipped');
 };
-});
+
 
 function openNav() {
   document.getElementById("mySidenav").style.width = "250px";
@@ -90,4 +89,4 @@ function closeNav() {
   document.getElementById("main").style.marginLeft = "0";
 };
 
-
+});
