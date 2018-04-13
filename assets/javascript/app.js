@@ -1,55 +1,45 @@
-// JS variables, such as "animalSearched", api-key, api-url;
-var apiKey = "49bd46fd5aab11a948d0cf49fdb22633";
-var animalSearched = "Dog";
-var apiUrl = "";
-var returnValue;
-var dogObjects = [];
-// Jquery on click event for submit button, should grab zip code box
+// JS won't run until HTML is done loading
+$(document).ready(function () {
+
+  // JS variables, such as "animalSearched", api-key:
+  var apiKey = "49bd46fd5aab11a948d0cf49fdb22633";
+  var animalSearched = "Dog";
+  var dogObjects = [];
+
+  // Jquery on click event for submit button, should grab zip code box
+  $('#submit').on('click', function () {
+    var zipCode = $('#zipCode').val();
+    console.log(zipCode);
+    console.log(getDawgs());
+  });
+  var addClass = 'highlight-border';
+  var cols = $('.highlight').click(function () {
+    $(this).toggleClass(addClass);
+  });
 
 
-$('#submit').on('click', function () {
-  var name = $('#name').val();
-  var newVar;
-  console.log(name);
 
-  var zipCode = $('#zipCode').val();
-  console.log(zipCode);
+  // Jquery on click event for clicking left button on their keyboard ("dislike/swipe left on a pet")
+  $('#swipe_dislike').on('click', function () {
 
- // getDawgs();
-});
+  })
 
-var addClass = 'highlight-border';
-var cols = $('.highlight').click(function () {
-  $(this).toggleClass(addClass);
-});
+  // Jquery on click event for middle button on keyboard ("get a pet's info")
+  $('.info').on('click', function () {
 
-function openNav() {
-  document.getElementById("mySidenav").style.width = "250px";
-  document.getElementById("main").style.marginLeft = "250px";
-};
+  })
+  // Jquery on click event for clicking right button on the page ("like/swipe right on a pet")
+  $('#swipe_like').on('click', function () {
 
-function closeNav() {
-  document.getElementById("mySidenav").style.width = "0";
-  document.getElementById("main").style.marginLeft = "0";
-};
+  })
+  // Jquery method for pet's pic to change after clicking 'info' button
+  $('').on('click', function(){
 
-// Jquery event for clicking left arrow on their keyboard
-$('').on('click', function () {
+  })
 
-})
+  // JS method for getting API request
 
-// Jquery event for right arrow on keyboard
-$('').on('click', function () {
-
-})
-// Jquery event for clicking right arrow on the page
-$('').on('click', function () {
-
-})
-// JS method for replacing entire page with new HTML
-
-
-// JS method for getting API request
+ // JS method for getting API request
 
 function getDawgs() {
   var queryURL = "https://api.petfinder.com/pet.find?key=" + apiKey + "&output=full&format=json&animal=dog&location=27560";
@@ -85,9 +75,19 @@ function getDawgs() {
   });
 
 
+function flip() {
+  $('.card').toggleClass('flipped');
+};
+});
+
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+};
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("main").style.marginLeft = "0";
+};
 
 
-  // console.log("end of getDawgs method");
-}
-
-//getDawgs();

@@ -145,16 +145,17 @@ input[type=text]:focus {
     margin-left: 50px;
 }
 
-.pet-image {
+.pet-card {
     align-content: center;
     position: relative;
-
+    padding-right: 500px;
+    
 }
 
 .flipcontainer {
     width: 400px;
     height: 480px;
-    /* position: relative; */
+    position: relative;
     border: 1px solid #ccc;
     -webkit-perspective: 800px;
     -moz-perspective: 800px;
@@ -218,14 +219,16 @@ input[type=text]:focus {
 }
 
 .dislike-info-like {
-    margin-top: 10px;
     align-content: center;
-    padding-bottom: 50px;
-
+    position: absolute;
+    padding-left: 30px;
 }
 
 .buttons {
     align-content: center;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 10px;
 }
 
 .buttons:hover {
