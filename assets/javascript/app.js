@@ -80,13 +80,19 @@ $(document).ready(function () {
   $('#swipe_like').on('click', function () {
 
   })
-  // Jquery method for pet's pic to change after clicking 'info' button
-  $('').on('click', function () {
-
+  // Jquery method for pet's pic to change after clicking 'like' or 'dislike' buttons
+  $('#swipe_like').on({
+    'click': function () {
+      $('#swipe_like').attr('src','second.jpg');
+    } ||
+  $('#swipe_right').on({
+    'click': function () {
+      $('#swipe_right').attr('src','second.jpg');
+    }
+  })    
   });
 
-  // JS method for getting API request
-
+  
   // JS method for getting API request
 
   function getDawgs() {
