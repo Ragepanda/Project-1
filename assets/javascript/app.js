@@ -14,6 +14,7 @@ $(document).ready(function () {
   console.log(zipcode);
   console.log("dogSelected: "+dogSelected);
   console.log("catSelected: "+catSelected);
+  console.log("miscSelected"+miscSelected);
   
 
   if(dogSelected === "true"){
@@ -24,6 +25,11 @@ $(document).ready(function () {
   if(catSelected === "true") {
     console.log("got cats");
     getKitties();
+  }
+
+  if(miscSelected === "true") {
+    console.log("got misc");
+    getMisc();
   }
 
     
@@ -103,6 +109,7 @@ $(document).ready(function () {
         dogObjects.push(newDog);
       }
       console.log(response);
+      console.log("dogObjects Array:");
       console.log(dogObjects);
      //$(".card-img-top").attr("src", dogObjects[0].picture);
       $(".pet-name").text(dogObjects[0].name);
@@ -138,11 +145,49 @@ $(document).ready(function () {
         catObjects.push(newCat);
       }
       console.log(response);
+      console.log("catObjects Array:")
       console.log(catObjects);
 
       //$(".card-img-top").attr("src", catObjects[0].picture);
       $(".pet-name").text(catObjects[0].name);
       $("#description").text(catObjects[0].description);
+    }).catch((error) => {
+      console.log(error);
+    });
+  }
+
+  function getMisc() {
+    var queryURL = "https://api.petfinder.com/pet.find?key=" + apiKey + "&output=full&format=json&animal=smallfurry&location=27560";
+
+    jQuery.ajax({
+      type: 'GET',
+      url: queryURL,
+      dataType: 'jsonp'
+    }).then((response) => {
+
+      for (var i = 0; i < 25; i++) {
+        var pictureURL;
+        if (!("photos" in response.petfinder.pets.pet[i].media))
+          pictureURL = "https://i.pinimg.com/originals/4a/e1/35/4ae1350602b3a7ea14b6fabe962aa15f.jpg";
+
+        else
+          pictureURL = response.petfinder.pets.pet[i].media.photos.photo[3].$t;
+
+        var newMisc = {
+          name: response.petfinder.pets.pet[i].name.$t,
+          picture: pictureURL,
+          description: response.petfinder.pets.pet[i].description.$t,
+          zip: response.petfinder.pets.pet[i].contact.zip.$t
+        }
+        miscObjects.push(newMisc);
+      }
+      console.log("Miscellaneous Furry Animals JSON API")
+      console.log(response);
+      console.log("miscObjects array:")
+      console.log(miscObjects);
+     //$(".card-img-top").attr("src", miscObjects[0].picture);
+      $(".pet-name").text(miscObjects[0].name);
+      $("#description").text(miscObjects[0].description);
     }).catch((error) => {
       console.log(error);
     });
