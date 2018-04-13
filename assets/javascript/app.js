@@ -71,6 +71,7 @@ $(document).ready(function () {
       console.log(error);
     });
   }
+});
 
 function flip() {
   $('.card').toggleClass('flipped');
@@ -87,4 +88,4 @@ function closeNav() {
   document.getElementById("main").style.marginLeft = "0";
 };
 
-});
+
