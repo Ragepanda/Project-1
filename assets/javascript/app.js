@@ -75,6 +75,7 @@ $(document).ready(function () {
     });
   };
 });
+
     function flip() {
       $('.card').toggleClass('flipped');
     };
