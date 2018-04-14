@@ -107,6 +107,7 @@ $(document).ready(function () {
 
       var dogButton = $("<button id='moreDogs'>Next Furry Friend</button>");
       if (!dogLiked) {
+        $("#card-header").html("<h2>You Matched With "+dogObjects[cardIndex].name)+"</h2>";
         if(!$(".card").attr("class").includes("flipped"))
           flip();
         $("#nextDog").append(dogButton);
@@ -124,6 +125,7 @@ $(document).ready(function () {
     $("#distance").html(dogObjects[cardIndex].distance);
     $("#email").text("Email for more info at: " + dogObjects[cardIndex].email);
     $("#nextDog").empty();
+    $("#card-header").empty();
     dogLiked = false;
   })
 
