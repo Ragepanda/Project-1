@@ -3,10 +3,7 @@ $(document).ready(function () {
 
   // JS variables, such as "animalSearched", api-key:
   var apiKey = "49bd46fd5aab11a948d0cf49fdb22633";
-  var animalSearched = "Dog";
-  var dogObjects = [];
-  var catObjects = [];
-  var miscObjects = [];
+  var animalObjects = [];
   var zipcode = sessionStorage.getItem("zipcode");
   var dogSelected = sessionStorage.getItem("dogSelected");
   var catSelected = sessionStorage.getItem("catSelected");
@@ -18,7 +15,6 @@ $(document).ready(function () {
   console.log("miscSelected" + miscSelected);
 
   $('.animal-box').on('click', function () {
-    console.log("poop");
     if ($(this).attr("chosen") === "true") {
       $(this).attr("chosen", "false");
       $(this).removeClass('highlight-border')
@@ -70,33 +66,14 @@ $(document).ready(function () {
 
 
   // Jquery on click event for clicking left button on their keyboard ("dislike/swipe left on a pet")
-  $('#swipe_dislike').on('click', function () {
-
-  })
-
-  // Jquery on click event for middle button on keyboard ("get a pet's info")
-  $('.info').on('click', function () {
-
-  })
-  // Jquery on click event for clicking right button on the page ("like/swipe right on a pet")
-  $('#swipe_like').on('click', function () {
-
-  })
-  // Jquery method for pet's pic to change after clicking 'like' or 'dislike' buttons
-  $('#swipe_like').on({
-    'click': function () {
-      $('#swipe_like').attr('src', 'second.jpg');
-    } ||
-      $('#swipe_right').on({
-        'click': function () {
-          $('#swipe_right').attr('src', 'second.jpg');
-        }
-      })
+  $('.rate').on('click', function () {
+    $(".img-card").attr("src", animalObjects[0].picture);
+    $(".pet-name").text(animalObjects[0].name);
+    $("#description").text(animalObjects[0].description);
+    animalObjects.splice(0,1);
   });
 
-
   // JS method for getting API request
-
   function getDawgs() {
     var queryURL = "https://api.petfinder.com/pet.find?key=" + apiKey + "&output=full&format=json&animal=dog&location=27560";
 
@@ -120,14 +97,15 @@ $(document).ready(function () {
           description: response.petfinder.pets.pet[i].description.$t,
           zip: response.petfinder.pets.pet[i].contact.zip.$t
         }
-        dogObjects.push(newDog);
+        animalObjects.push(newDog);
       }
       console.log(response);
-      console.log("dogObjects Array:");
-      console.log(dogObjects);
-      $(".img-card").attr("src", dogObjects[0].picture);
-      $(".pet-name").text(dogObjects[0].name);
-      $("#description").text(dogObjects[0].description);
+      console.log("animalObjects Array:");
+      console.log(animalObjects);
+      $(".img-card").attr("src", animalObjects[0].picture);
+      $(".pet-name").text(animalObjects[0].name);
+      $("#description").text(animalObjects[0].description);
+      animalObjects.splice(0,1);
     }).catch((error) => {
       console.log(error);
     });
@@ -156,15 +134,16 @@ $(document).ready(function () {
           description: response.petfinder.pets.pet[i].description.$t,
           zip: response.petfinder.pets.pet[i].contact.zip.$t
         }
-        catObjects.push(newCat);
+        animalObjects.push(newCat);
       }
       console.log(response);
-      console.log("catObjects Array:")
-      console.log(catObjects);
+      console.log("animalObjects Array:")
+      console.log(animalObjects);
 
-      $(".img-card").attr("src", catObjects[0].picture);
-      $(".pet-name").text(catObjects[0].name);
-      $("#description").text(catObjects[0].description);
+      $(".img-card").attr("src", animalObjects[0].picture);
+      $(".pet-name").text(animalObjects[0].name);
+      $("#description").text(animalObjects[0].description);
+      animalObjects.splice(0,1);
     }).catch((error) => {
       console.log(error);
     });
@@ -193,15 +172,16 @@ $(document).ready(function () {
           description: response.petfinder.pets.pet[i].description.$t,
           zip: response.petfinder.pets.pet[i].contact.zip.$t
         }
-        miscObjects.push(newMisc);
+        animalObjects.push(newMisc);
       }
       console.log("Miscellaneous Furry Animals JSON API")
       console.log(response);
-      console.log("miscObjects array:")
-      console.log(miscObjects);
-      $(".img-card").attr("src", miscObjects[0].picture);
-      $(".pet-name").text(miscObjects[0].name);
-      $("#description").text(miscObjects[0].description);
+      console.log("animalObjects array:")
+      console.log(animalObjects);
+      $(".img-card").attr("src", animalObjects[0].picture);
+      $(".pet-name").text(animalObjects[0].name);
+      $("#description").text(animalObjects[0].description);
+      animalObjects.splice(0,1);
     }).catch((error) => {
       console.log(error);
     });
