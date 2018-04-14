@@ -87,7 +87,7 @@ $(document).ready(function () {
 
   })
   // Jquery method for pet's pic to change after clicking 'like' or 'dislike' buttons
-  $('#swipe_dislike').on({
+  $('.rate').on({
     'click': function () {
       $(".img-card").attr("src", dogObjects[++cardIndex].picture);
       $(".pet-name").text(dogObjects[cardIndex].name);
