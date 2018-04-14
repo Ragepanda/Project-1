@@ -105,7 +105,7 @@ $(document).ready(function () {
   $('#swipe_like').on({
     'click': function () {
 
-      var dogButton = $("<button id='moreDogs'>Next Dog</button>");
+      var dogButton = $("<button id='moreDogs'>Next Furry Friend</button>");
       if (!dogLiked) {
         if(!$(".card").attr("class").includes("flipped"))
           flip();

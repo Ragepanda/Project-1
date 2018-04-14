@@ -260,6 +260,9 @@ p#description {
     -moz-transform: rotateY( 180deg );
     -o-transform: rotateY( 180deg );
     transform: rotateY( 180deg );
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin-bottom: 10px;
 }
 
 #outer {
@@ -291,7 +294,6 @@ p#description {
 .hidden {
     display: none;
 }
-
 
 
 /* //////////// */
