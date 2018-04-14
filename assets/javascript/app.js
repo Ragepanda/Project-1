@@ -11,6 +11,7 @@ $(document).ready(function () {
   var dogSelected = sessionStorage.getItem("dogSelected");
   var catSelected = sessionStorage.getItem("catSelected");
   var miscSelected = sessionStorage.getItem("miscSelected");
+  var googleKey = "AIzaSyBi_UnjyKLkvS42XI58I5VqmAcd2Fo0-r8";
   console.log(zipcode);
   console.log("dogSelected: " + dogSelected);
   console.log("catSelected: " + catSelected);
@@ -29,6 +30,7 @@ $(document).ready(function () {
     }
   });
 
+  getDistance();
   if (dogSelected === "true") {
     console.log("got dogs");
     getDawgs();
@@ -83,16 +85,16 @@ $(document).ready(function () {
   // Jquery method for pet's pic to change after clicking 'like' or 'dislike' buttons
   $('#swipe_like').on({
     'click': function () {
-      $('#swipe_like').attr('src','second.jpg');
+      $('#swipe_like').attr('src', 'second.jpg');
     } ||
-  $('#swipe_right').on({
-    'click': function () {
-      $('#swipe_right').attr('src','second.jpg');
-    }
-  })    
+      $('#swipe_right').on({
+        'click': function () {
+          $('#swipe_right').attr('src', 'second.jpg');
+        }
+      })
   });
 
-  
+
   // JS method for getting API request
 
   function getDawgs() {
@@ -202,6 +204,28 @@ $(document).ready(function () {
       $("#description").text(miscObjects[0].description);
     }).catch((error) => {
       console.log(error);
+    });
+  }
+
+  function getDistance()
+  {
+     //Find the distance
+     var distanceService = new google.maps.DistanceMatrixService();
+     distanceService.getDistanceMatrix({
+        origins: ["Chapel Hill, NC"],
+        destinations: ["Washington, DC"],
+        travelMode: google.maps.TravelMode.DRIVING,
+        unitSystem: google.maps.UnitSystem.METRIC,
+        durationInTraffic: true,
+        avoidHighways: false,
+        avoidTolls: false
+    },
+    function (response, status) {
+        if (status !== google.maps.DistanceMatrixStatus.OK) {
+            console.log('Error:', status);
+        } else {
+            console.log(response);
+        }
     });
   }
 });
