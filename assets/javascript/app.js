@@ -15,6 +15,7 @@ $(document).ready(function () {
   var googleKey = "AIzaSyBi_UnjyKLkvS42XI58I5VqmAcd2Fo0-r8";
   var distance;
   var cardIndex = 0;
+  var dogLiked = false;
 
   console.log(zipcode);
   console.log("dogSelected: " + dogSelected);
@@ -87,21 +88,54 @@ $(document).ready(function () {
 
   })
   // Jquery method for pet's pic to change after clicking 'like' or 'dislike' buttons
-  $('.rate').on({
+  $('#swipe_dislike').on({
     'click': function () {
-      $(".img-card").attr("src", dogObjects[++cardIndex].picture);
-      $(".pet-name").text(dogObjects[cardIndex].name);
-      $("#description").text(dogObjects[cardIndex].description);
-      $("#distance").html(dogObjects[cardIndex].distance);
-      $("#email").text("Email for more info at: "+dogObjects[cardIndex].email);
-    } 
+      if (!dogLiked) {
+        $(".img-card").attr("src", dogObjects[++cardIndex].picture);
+        $(".pet-name").text(dogObjects[cardIndex].name);
+        $("#description").text(dogObjects[cardIndex].description);
+        $("#distance").html(dogObjects[cardIndex].distance);
+        $("#email").text("Email for more info at: " + dogObjects[cardIndex].email);
+        $("#location").text("City/State: " + dogObjects[cardIndex].location);
+        $("#phone").text("Phone Number(s): " + dogObjects[cardIndex].phone);
+      }
+    }
   });
 
+  $('#swipe_like').on({
+    'click': function () {
+
+      var dogButton = $("<button id='moreDogs'>Next Dog</button>");
+      if (!dogLiked) {
+        if(!$(".card").attr("class").includes("flipped"))
+          flip();
+        $("#nextDog").append(dogButton);
+        dogLiked = true;
+      }
+
+    }
+  });
+
+  $("body").on("click", "#moreDogs", function () {
+    flip();
+    $(".img-card").attr("src", dogObjects[++cardIndex].picture);
+    $(".pet-name").text(dogObjects[cardIndex].name);
+    $("#description").text(dogObjects[cardIndex].description);
+    $("#distance").html(dogObjects[cardIndex].distance);
+    $("#email").text("Email for more info at: " + dogObjects[cardIndex].email);
+    $("#nextDog").empty();
+    dogLiked = false;
+  })
+
+  $("body").on("click", ".info", function () {
+    if (!dogLiked)
+      flip();
+  })
 
   // JS method for getting API request
 
   function getDawgs(animal) {
-    var queryURL = "https://api.petfinder.com/pet.find?key=" + apiKey + "&output=full&format=json&animal="+animal+"&location=" + zipcode.toString();
+    var queryURL = "https://api.petfinder.com/pet.find?key=" + apiKey + "&output=full&format=json&animal=" + animal + "&location=" + zipcode.toString();
 
     jQuery.ajax({
       type: 'GET',
@@ -138,24 +172,24 @@ $(document).ready(function () {
       $(".img-card").attr("src", dogObjects[cardIndex].picture);
       $(".pet-name").text(dogObjects[cardIndex].name);
       $("#description").text(dogObjects[cardIndex].description);
-      $("#email").text("Email for more info at: "+dogObjects[cardIndex].email);
-      $("#location").text(dogObjects[cardIndex].location);
-      $("#phone").text(dogObjects[cardIndex].phone);
-     // $("#distance").html(dogObjects[0].distance);
+      $("#email").text("Email for more info at: " + dogObjects[cardIndex].email);
+      $("#location").text("City/State: " + dogObjects[cardIndex].location);
+      $("#phone").text("Phone Number(s): " + dogObjects[cardIndex].phone);
+      // $("#distance").html(dogObjects[0].distance);
 
     }).catch((error) => {
       console.log(error);
     });
   }
 
-  
+
 
   function getDistance() {
     var index = 0;
     for (var i = 0; i < 25; i++) {
       //Find the distance
       var distanceService = new google.maps.DistanceMatrixService();
-      console.log("Origins: "+zipcode+"   Destination: "+dogObjects[i].zip)
+      console.log("Origins: " + zipcode + "   Destination: " + dogObjects[i].zip)
       distanceService.getDistanceMatrix({
         origins: [zipcode],
         destinations: [dogObjects[i].zip],
@@ -169,15 +203,15 @@ $(document).ready(function () {
           if (status !== google.maps.DistanceMatrixStatus.OK) {
             console.log('Error:', status);
           } else {
-          
-              distance = response.rows["0"].elements["0"].distance.text;
+
+            distance = response.rows["0"].elements["0"].distance.text;
             if (distance === "1 ft")
               distance = "Near You!"
-              
-            if(index===0)
+
+            if (index === 0)
               $("#distance").text(distance);
 
-              dogObjects[index++].distance = distance;
+            dogObjects[index++].distance = distance;
           }
         });
     }
